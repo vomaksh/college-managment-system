@@ -1,0 +1,13 @@
+.login .card {
+  background: rgba(0, 0, 0, .7);
+}
+
+.login label {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.login input {
+  font-size: "20px";
+  color: #fff;
+}
