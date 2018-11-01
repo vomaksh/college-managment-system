@@ -21,7 +21,7 @@ export default class TimeTableCard extends Component {
                 padding: "5px",
                 marginLeft: "0px"
               }}
-              data-badge-caption="Assignment Submission"
+              data-badge-caption={this.props.task}
             />
             </div>
           </div>

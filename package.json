@@ -3,11 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "chart.js": "^2.7.3",
+    "express": "^4.16.4",
     "firebase": "^5.5.5",
+    "push.js": "^1.0.9",
     "react": "^16.6.0",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "react-select": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

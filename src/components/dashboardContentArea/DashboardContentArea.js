@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import TimeTable from '../timeTable/TimeTable';
 import TimeTableEnhanced from '../timeTable/TimeTableEnhanced';
+import Announcement from '../forum/Forum';
+import Attendance from '../attendance/Attendance';
+import LibrarySearch from "../librarySearch/LibrarySearch";
+import StationaryMarket from '../stationaryMarket/StationaryMarket';
 
 export default class DashboardContentArea extends Component {
   render() {
@@ -10,13 +13,16 @@ export default class DashboardContentArea extends Component {
           <TimeTableEnhanced />
         </div>
         <div id="announcements" class="container col s12">
-          announcements
+          <Announcement />
         </div>
-        <div id="attendance" class="container col s12">
-          attendance
+        <div id="attendance" class="col s12">
+          <Attendance />
         </div>
         <div id="libraryBooks" class="container col s12">
-          library
+          <LibrarySearch />
+        </div>
+        <div id="stationaryMarketplace" class="container col s12">
+          <StationaryMarket />
         </div>
       </div>
     )

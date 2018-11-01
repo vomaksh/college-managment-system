@@ -29,12 +29,13 @@ export default class DashboardHeader extends Component {
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons">more_vert</i></a></li>
             </ul>
           </div>
-          <div class="container nav-content">
+          <div class="container">
             <ul class="tabs tabs-transparent">
-              <li class="tab"><a href="#timeTable" class="active"><i class="fas fa-clock"></i>&nbsp;&nbsp;<span className="hide-on-small-only">Time Table</span></a></li>
-              <li class="tab"><a href="#announcements"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;<span className="hide-on-small-only">Announcements</span></a></li>
-              <li class="tab"><a href="#attendance"><i class="far fa-hand-paper"></i>&nbsp;&nbsp;<span className="hide-on-small-only">Attendance</span></a></li>
-              <li class="tab"><a href="#libraryBooks"><i class="fas fa-book"></i>&nbsp;&nbsp;<span className="hide-on-small-only">Library Books</span></a></li>
+              <li class="tab"><a href="#timeTable" class="active"><i class="fas fa-clock"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Time Table</span></a></li>
+              <li class="tab"><a href="#announcements"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Announcements</span></a></li>
+              <li class="tab"><a href="#attendance"><i class="far fa-hand-paper"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Attendance</span></a></li>
+              <li class="tab"><a href="#libraryBooks"><i class="fas fa-book"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Library</span></a></li>
+              <li class="tab"><a href="#stationaryMarketplace"><i class="fas fa-store"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Stationary Marketplace</span></a></li>
             </ul>
           </div>
         </nav>
