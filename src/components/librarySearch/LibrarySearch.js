@@ -1,10 +1,37 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import fire from "../../config/fire";
+import LibraryBooksArea from '../libraryBooksArea/LibraryBooksArea';
+
+const db = fire.firestore();
+db.settings({
+  timestampsInSnapshots: true
+});
 
 export default class LibrarySearch extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      books: []
+    }
+  }
+  componentDidMount = () => {
+    db.collection("libraryBooks").get().then(snapshot => {
+      this.setState({
+        books: []
+      })
+      if(snapshot.size > 0) {
+        snapshot.forEach(doc => {
+          this.setState({
+            books: [...this.state.books, doc.data()]
+          })
+        })
+      }
+    })
+  }
   render() {
     return (
       <div className="row login" style={{
-        marginTop: "70px"
+        marginTop: "10px"
       }}>
         <div className="col s12">
           <div className="card">
@@ -23,7 +50,10 @@ export default class LibrarySearch extends Component {
               </div>
             </div>
           </div>
+          {console.log(this.state.books)}
+          <LibraryBooksArea books={this.state.books} />
         </div>
+        
       </div>
     )
   }
