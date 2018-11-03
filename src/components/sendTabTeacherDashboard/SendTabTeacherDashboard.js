@@ -88,7 +88,8 @@ export default class SendTabTeacherDashboard extends Component {
         db.collection("announcements").doc().set({
           id: doc.data().length + 1,
           title: this.state.announcementTitle,
-          body: this.state.announcementBody
+          body: this.state.announcementBody,
+          showToTeachers: true
         }).then(() => {
           db.collection("announcements").doc("length").update({
             length: totalData + 1

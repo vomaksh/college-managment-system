@@ -14,6 +14,7 @@ export default class Header extends Component {
             <ul class="tabs tabs-transparent tabs-fixed-width">
               <li class="tab"><a href="#studentLogin" class="active">Student Login</a></li>
               <li class="tab"><a href="#teacherLogin">Teacher Login</a></li>
+              <li class="tab"><a href="#societyLogin">Society Login</a></li>
               <li class="tab"><a href="#librarySearch">Library Search</a></li>
             </ul>
           </div>

@@ -32,9 +32,14 @@ export default class Forum extends Component {
   render() {
     return (
       <div className="row center-align">
-        {console.log("In render", this.state.announcements)}
         {this.state.announcements.map(announcement => {
-          return <ForumCard title = {announcement.title} body = {announcement.body} />
+          if(localStorage.getItem("teacherId")){
+            if(announcement.showToTeachers !== false) {
+              return <ForumCard title = {announcement.title} body = {announcement.body} />
+            }
+          } else {
+            return <ForumCard title = {announcement.title} body = {announcement.body} />
+          }
         })}
       </div>
     )

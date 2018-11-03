@@ -25,6 +25,8 @@ export default class HomePage extends Component {
       this.props.history.push("/dashboard")
     } else if(localStorage.getItem("teacherId")){
       this.props.history.push("/teacherDashboard")
+    } else if(localStorage.getItem("societyId")){
+      this.props.history.push("/societyDashboard")
     }
   }
   redirectStudent = () => {
@@ -33,11 +35,14 @@ export default class HomePage extends Component {
   redirectTeacher = () => {
     this.props.history.push("/teacherDashboard")
   }
+  redirectSocietyAdmin = () => {
+    this.props.history.push("/societyDashboard");
+  }
   render() {
     return (
       <div className="App">
         <Header />
-        <ContentArea redirectStudent={this.redirectStudent} redirectTeacher={this.redirectTeacher} />
+        <ContentArea redirectStudent={this.redirectStudent} redirectTeacher={this.redirectTeacher} redirectSocietyAdmin={this.redirectSocietyAdmin} />
         <Footer />
       </div>
     )

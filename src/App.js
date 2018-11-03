@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import Dashboard from './pages/Dashboard/Dashboard';
 import TeacherDashboard from './pages/TeacherDashboard/TeacherDashboard';
 import { askForPermissioToReceiveNotifications } from './firebase-messaging-sw';
+import SocietyDashboard from './pages/SocietyDashboard/SocietyDashboard';
 
 class App extends Component {
   componentDidMount(){
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/" component={HomePage} exact />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/teacherDashboard" component={TeacherDashboard} />
+          <Route path="/societyDashboard" component={SocietyDashboard} />
         </div>
       </BrowserRouter>
     );
