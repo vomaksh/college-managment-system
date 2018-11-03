@@ -14,13 +14,7 @@ export default class DashboardHeader extends Component {
     return (
       <div>
         <ul id="dropdown1" class="dropdown-content">
-          <li><Link to="/library">Library Search</Link></li>
-          <li class="divider"></li>
-          <li><Link to="/my-time-table">My Time Table</Link></li>
-          <li class="divider"></li>
-          <li><Link to="/my-semster-result">My Semester Results</Link></li>
-          <li class="divider"></li>
-          <li><a>Logout</a></li>
+          <li onClick={this.props.logout}><a>Logout</a></li>
         </ul>
         <nav class="nav-extended black">
           <div class="container nav-wrapper">

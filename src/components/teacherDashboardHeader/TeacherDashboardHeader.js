@@ -12,9 +12,15 @@ export default class TeacherDashboardHeader extends Component {
   render() {
     return (
       <div>
+        <ul id="dropdown2" class="dropdown-content">
+          <li onClick={this.props.logout}><a>Logout</a></li>
+        </ul>
         <nav class="black nav-extended">
           <div class="center-align container nav-wrapper">
             <a href="#" class="brand-logo">VOMAkSh</a>
+            <ul class="right">
+              <li><a class="dropdown-trigger" href="#!" data-target="dropdown2"><i class="material-icons">more_vert</i></a></li>
+            </ul>
           </div>
           <div class="container nav-content">
             <ul class="tabs tabs-transparent tabs-fixed-width">

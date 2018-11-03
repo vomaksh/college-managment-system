@@ -1,7 +1,7 @@
 import React, { Component , Fragment } from 'react';
 import axios from 'axios';
 import CreatableSelect from 'react-select/lib/Creatable';
-import {Input} from "semantic-ui-react"
+import { Input , Dropdown } from "semantic-ui-react"
 
 import fire from '../../config/fire';
 
@@ -18,6 +18,7 @@ export default class SendTabTeacherDashboard extends Component {
       announcementBody: '',
       batch: 'none',
       day: 'none',
+      check: '',
       timeTable: [],
       task: ''
     }
@@ -37,7 +38,7 @@ export default class SendTabTeacherDashboard extends Component {
   getSubjectsByTimeTable = () => {
     db.collection("timeTable")
       .doc(this.state.batch)
-      .collection("sem1")
+      .collection(this.state.semester)
       .doc(this.state.day)
       .collection("0")
       .orderBy('id')
@@ -58,7 +59,7 @@ export default class SendTabTeacherDashboard extends Component {
   addTaskToTimetable = () => {
     db.collection('timeTable')
       .doc(this.state.batch)
-      .collection("sem1")
+      .collection(this.state.semester)
       .doc(this.state.day)
       .collection("0")
       .doc(this.state.subjectId)
@@ -112,51 +113,93 @@ export default class SendTabTeacherDashboard extends Component {
     console.log(this.state);
   }
   render() {
+    const batchOptions = [{
+      key: 0,
+      value: "cse",
+      text: "CSE"
+    }, {
+      key: 1,
+      value: "ece",
+      text: "ECE"
+    }];
+    const days = [{
+      key: 0,
+      value: "monday",
+      text: "Monday"
+    }, {
+      key: 1,
+      value: "tuesday",
+      text: "Tuesday"
+    }, {
+      key: 2,
+      value: "wednesday",
+      text: "Wednesday"
+    }, {
+      key: 3,
+      value: "thursday",
+      text: "Thursday"
+    }, {
+      key: 4,
+      value: "friday",
+      text: "Friday"
+    }];
+    const semesterOptions = [{
+      key: 0,
+      value: "sem1",
+      text: "Semester 1"
+    }, {
+      key: 1,
+      value: "sem2",
+      text: "Semester 2"
+    }];
+    const selectStyle = {
+      marginBottom: "10px",
+      width: "100%"
+    };
     return (
-      <div className="container center-align">
-        <h4>Post Messages to Students</h4>
+      <div className="container center-align" style={{
+        marginTop: "20px"
+      }}>
+        <h2 className="white-text">Post Messages to Students</h2>
         <form class="col s12">
           <div class="row">
-          <Input placeholder='Search...' />
-          <div class="input-field col s12">
-            <input id="announcementTitle" type="text" onChange={this.onChangeHandler} placeholder="Announcement Title" />
-          </div>
-            <div class="input-field col s12">
-              <textarea id="announcementBody" class="materialize-textarea" onChange={this.onChangeHandler} placeholder="Announcement Body"></textarea>
-            </div>
+            <Input className="col s12" placeholder='Announcement Title' onChange={this.onChangeHandler} id="announcementTitle" value={this.state.announcementTitle} style={{
+              marginBottom: "10px"
+            }}/>
+            <Input className="col s12" placeholder='Announcement Body' onChange={this.onChangeHandler} id="announcementBody" value={this.state.announcementBody} />
           </div>
         </form>
-        <button className="btn" onClick={this.onClickHandler} style={{
-          marginTop: "-15px",
+        <button className="btn-large blue" onClick={this.onClickHandler} style={{
+          marginTop: "0px",
           marginBottom: "10px"
         }}>
           Generate Notification to all ECE Students
         </button>
-        <h4>Add task to Students</h4>
+        <h2 className="white-text">Add task to Students</h2>
         <div>
-          <select onChange={event => {
+          <Dropdown style={selectStyle} fluid selection placeholder='Select Batch' options={batchOptions} onChange={(event, data) => {
+            console.log(data.value)
             this.setState({
-              batch: event.target.value
+              batch: data.value
             });
-          }}>
-            <option value="none">Select Batch</option>
-            <option value="cse">CSE</option>
-            <option value="ece">ECE</option>
-          </select>
-          <select onChange={event => {
+          }}/>
+          <br />
+          <Dropdown style={selectStyle} fluid selection placeholder='Select Semester' options={semesterOptions} onChange={(event, data) => {
+            console.log(data.value)
             this.setState({
-              day: event.target.value
+              semester: data.value
             });
-          }}>
-            <option value="none">Select Day</option>
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-          </select>
-          <button className="btn col s12" style={{
-            marginTop: "10px",
+          }}/>
+          <br />
+          <Dropdown style={selectStyle} fluid selection placeholder='Select Day' options={days} onChange={(event, data) => {
+            console.log(data.value)
+            this.setState({
+              day: data.value
+            });
+          }}/>
+          <br />
+          <button className="btn-large col s12 blue" style={{
+            marginTop: "0px",
             marginBottom: "15px"
           }} onClick={() => {
             this.getSubjectsByTimeTable()
@@ -171,12 +214,12 @@ export default class SendTabTeacherDashboard extends Component {
                 options={this.state.timeTable}
               /> 
               <div className="col s12">
-                <div className="row">
-                <div class="input-field col s9">
-                  <input id="task" type="text" value={this.state.task} placeholder="Task to be added" onChange={this.onChangeHandler} />
-                </div>  
-                <button className="btn col s3" style={{
-                  marginTop: "12px"
+                <div className="row" style={{
+                  marginTop: "10px"
+                }}>
+                <Input className="col s8" placeholder='Add task' onChange={this.onChangeHandler} id="task" value={this.state.task} />
+                <button className="btn-large col s3 offset-s1 blue" style={{
+                  marginTop: "6px"
                 }} onClick={this.addTaskToTimetable}>
                   Add Task
                 </button>

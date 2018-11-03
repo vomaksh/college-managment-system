@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {
-  axios.get("https://outcome-ipu.herokuapp.com/find/05011502816").then(response => {
+  axios.get("https://outcome-ipu.herokuapp.com/find/" + req.query.rollNumber).then(response => {
     console.log("In then block");
     return res.send(response.data)
   }).catch(error => {

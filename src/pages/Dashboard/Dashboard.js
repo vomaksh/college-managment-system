@@ -21,10 +21,15 @@ export default class Dashboard extends Component {
       }
     })(document, window, 'Chatra');
   }
+  logout = () => {
+    localStorage.removeItem("rollNumber");
+    localStorage.removeItem("name");
+    this.props.history.push("/");
+  }
   render() {
     return (
       <div className="dashboard">
-        <DashboardHeader />
+        <DashboardHeader logout={this.logout} />
         <DashboardContentArea />
       </div>
     )

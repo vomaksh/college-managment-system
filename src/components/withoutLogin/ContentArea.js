@@ -35,7 +35,7 @@ export default class ContentArea extends Component {
         querySnapshot.forEach(doc => {
           if(doc.data().password == password){
             localStorage.setItem("name", doc.data().name);
-            localStorage.setItem("teacherId", doc.data().rollNumber);
+            localStorage.setItem("teacherId", doc.data().teacherId);
             console.log(doc.data());
             window.M.toast({html: "You have been successfully logged in as teacher"});
             this.props.redirectTeacher();

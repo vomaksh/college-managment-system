@@ -87,12 +87,6 @@ export default class StationaryMarket extends Component {
               fontSize: "20px",
               marginRight: "5px"
             }}></i>
-            <span style={{
-              fontSize: "20px",
-              marginLeft: "0px"
-            }}>
-              <b>Details</b>
-            </span>
           </a>
           <CartDetails cartDetails={this.state.cartList} totalPrice={this.state.cartValue} buyCartItems={this.buyCartItems} />
         </div>
