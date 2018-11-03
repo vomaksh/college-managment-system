@@ -1,6 +1,7 @@
 import React, { Component , Fragment } from "react";
 import TimeTableCard from "../timeTableCard/TimeTableCard";
 import fire from "../../config/fire";
+import Preloader from "../preloader/Preloader";
 
 const db = fire.firestore();
 db.settings({
@@ -11,15 +12,17 @@ export default class TimeTableEnhanced extends Component {
   constructor(props){
     super(props);
     this.state = {
-      timeTable: []
+      timeTable: [],
+      loading: true
     }
   }
   componentDidMount = () => {
     db.collection("timeTable").doc("ece").collection("sem1")
-      .doc("monday").collection("0").orderBy("id")
+      .doc("tuesday").collection("0").orderBy("id")
       .onSnapshot(querySnapshot => {
         this.setState({
-          timeTable: []
+          timeTable: [],
+          loading: false
         })
         querySnapshot.forEach(doc => {
           this.setState({
@@ -31,15 +34,19 @@ export default class TimeTableEnhanced extends Component {
   render() {
     return (
       <div className="center-align" style={{
-        marginTop: "10px"
+        marginTop: "10px",
+        height: "100%"
       }}>
         {
+          this.state.loading ?
+            <Preloader />
+          :
           this.state.timeTable.map((item, index) => {
             if(index === 0){
               return <TimeTableCard subject={item.subject} time={item.time} task={item.task} />
             } else {
               return (<Fragment>
-                <i class="fas fa-arrow-down blue-text" style={{
+                <i class="fas fa-arrow-down white-text" style={{
                   fontSize: "45px"
                 }}></i>
                 <TimeTableCard subject={item.subject} time={item.time} task={item.task} />

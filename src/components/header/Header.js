@@ -11,7 +11,7 @@ export default class Header extends Component {
             <a href="#" class="brand-logo">VOMAkSh</a>
           </div>
           <div class="container nav-content">
-            <ul class="tabs tabs-transparent">
+            <ul class="tabs tabs-transparent tabs-fixed-width">
               <li class="tab"><a href="#studentLogin" class="active">Student Login</a></li>
               <li class="tab"><a href="#teacherLogin">Teacher Login</a></li>
               <li class="tab"><a href="#librarySearch">Library Search</a></li>

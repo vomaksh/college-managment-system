@@ -31,8 +31,10 @@ const data = {
 export default class PracticalAttendance extends Component {
   render() {
     return (
-      <div className="container center-align">
-        <h4>Practical Attendance</h4>
+      <div className="container center-align" style={{
+        backgroundColor: "white"
+      }}>
+        <h2>Practical Attendance</h2>
         <Line data={data} />
       </div>
     )

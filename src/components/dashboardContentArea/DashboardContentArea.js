@@ -4,6 +4,7 @@ import Announcement from '../forum/Forum';
 import Attendance from '../attendance/Attendance';
 import LibrarySearch from "../librarySearch/LibrarySearch";
 import StationaryMarket from '../stationaryMarket/StationaryMarket';
+import MyProfile from '../myProfile/MyProfile';
 
 export default class DashboardContentArea extends Component {
   render() {
@@ -23,6 +24,9 @@ export default class DashboardContentArea extends Component {
         </div>
         <div id="stationaryMarketplace" class="container col s12">
           <StationaryMarket />
+        </div>
+        <div id="myProfile" class="container col s12">
+          <MyProfile />
         </div>
       </div>
     )

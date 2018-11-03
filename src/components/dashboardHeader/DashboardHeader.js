@@ -30,12 +30,13 @@ export default class DashboardHeader extends Component {
             </ul>
           </div>
           <div class="container">
-            <ul class="tabs tabs-transparent">
-              <li class="tab"><a href="#timeTable" class="active"><i class="fas fa-clock"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Time Table</span></a></li>
-              <li class="tab"><a href="#announcements"><i class="fas fa-bullhorn"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Announcements</span></a></li>
-              <li class="tab"><a href="#attendance"><i class="far fa-hand-paper"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Attendance</span></a></li>
-              <li class="tab"><a href="#libraryBooks"><i class="fas fa-book"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Library</span></a></li>
-              <li class="tab"><a href="#stationaryMarketplace"><i class="fas fa-store"></i>&nbsp;&nbsp;<span className="hide-on-med-and-down">Stationary Marketplace</span></a></li>
+            <ul class="tabs tabs-transparent tabs-fixed-width">
+              <li class="tab"><a href="#timeTable" class="active"><i class="fas fa-clock"></i>&nbsp;<span className="hide-on-med-and-down">Time Table</span></a></li>
+              <li class="tab"><a href="#announcements"><i class="fas fa-bullhorn"></i>&nbsp;<span className="hide-on-med-and-down">Announcements</span></a></li>
+              <li class="tab"><a href="#attendance"><i class="far fa-hand-paper"></i>&nbsp;<span className="hide-on-med-and-down">Attendance</span></a></li>
+              <li class="tab"><a href="#libraryBooks"><i class="fas fa-book"></i>&nbsp;<span className="hide-on-med-and-down">Library</span></a></li>
+              <li class="tab"><a href="#stationaryMarketplace"><i class="fas fa-store"></i>&nbsp;<span className="hide-on-med-and-down">Stationary</span></a></li>
+              <li class="tab"><a href="#myProfile"><i class="fas fa-user-circle"></i>&nbsp;<span className="hide-on-med-and-down">Profile</span></a></li>
             </ul>
           </div>
         </nav>

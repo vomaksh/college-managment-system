@@ -63,20 +63,20 @@ export default class StationaryMarket extends Component {
             cursor: "default"
           }}>
             <i class="fas fa-shopping-cart" style={{
-              fontSize: "25px",
-              marginRight: "10px"
+              fontSize: "20px",
+              marginRight: "6px"
             }}></i>
             <i class="material-icons" style={{
-              fontSize: "25px"
+              fontSize: "20px"
             }}>
               arrow_right_alt
             </i>
               <i class="fas fa-rupee-sign" style={{
-                fontSize: "25px",
-                marginLeft: "10px"
+                fontSize: "20px",
+                marginLeft: "5px"
               }}></i>
               <span style={{
-                fontSize: "25px",
+                fontSize: "20px",
                 marginLeft: "5px"
               }}>
                 <b>{this.state.cartValue}</b>
@@ -84,12 +84,12 @@ export default class StationaryMarket extends Component {
           </button>
           <a class="waves-effect waves-light btn-large modal-trigger orange darken-2" href="#cartDetails">
             <i class="fas fa-shopping-cart" style={{
-              fontSize: "25px",
-              marginRight: "10px"
+              fontSize: "20px",
+              marginRight: "5px"
             }}></i>
             <span style={{
               fontSize: "20px",
-              marginLeft: "5px"
+              marginLeft: "0px"
             }}>
               <b>Details</b>
             </span>

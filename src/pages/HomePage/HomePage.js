@@ -4,6 +4,7 @@ import Header from "../../components/header/Header"
 import ContentArea from '../../components/withoutLogin/ContentArea';
 import firebase from '../../config/fire';
 import axios from 'axios';
+import Footer from '../../components/footer/Footer';
 
 export default class HomePage extends Component {
   componentDidMount(){
@@ -20,6 +21,11 @@ export default class HomePage extends Component {
     }).catch(error => {
       console.log(error, "while taking a token")
     });
+    if(localStorage.getItem("rollNumber")){
+      this.props.history.push("/dashboard")
+    } else if(localStorage.getItem("teacherId")){
+      this.props.history.push("/teacherDashboard")
+    }
   }
   redirectStudent = () => {
     this.props.history.push("/dashboard")
@@ -32,6 +38,7 @@ export default class HomePage extends Component {
       <div className="App">
         <Header />
         <ContentArea redirectStudent={this.redirectStudent} redirectTeacher={this.redirectTeacher} />
+        <Footer />
       </div>
     )
   }

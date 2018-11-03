@@ -1,6 +1,7 @@
 import React, { Component , Fragment } from 'react';
 import axios from 'axios';
 import CreatableSelect from 'react-select/lib/Creatable';
+import {Input} from "semantic-ui-react"
 
 import fire from '../../config/fire';
 
@@ -116,6 +117,7 @@ export default class SendTabTeacherDashboard extends Component {
         <h4>Post Messages to Students</h4>
         <form class="col s12">
           <div class="row">
+          <Input placeholder='Search...' />
           <div class="input-field col s12">
             <input id="announcementTitle" type="text" onChange={this.onChangeHandler} placeholder="Announcement Title" />
           </div>

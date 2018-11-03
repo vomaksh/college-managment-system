@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { Line } from "react-chartjs-2";
+import fire from "../../config/fire";
+
+const db = fire.firestore();
+db.settings({
+  timestampsInSnapshots: true
+});
 
 const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['DSD', 'MPC', 'IM', 'CS', 'DC', 'CSP'],
   datasets: [
     {
       label: 'Attendance in Theory Subjects',
@@ -29,10 +35,22 @@ const data = {
 };
 
 export default class TheoryAttendance extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      theoryAttendance: []
+    }
+  }
+  componentDidMount = () => {
+    
+  }
   render() {
     return (
-      <div className="container center-align">
-        <h4>Theory Attendance</h4>
+      <div className="container center-align" style={{
+        backgroundColor: "white",
+        minHeight: "100%"
+      }}>
+        <h2>Theory Attendance</h2>
         <Line data={data} />
       </div>
     )

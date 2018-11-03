@@ -1,15 +1,31 @@
 import React, { Component , Fragment } from 'react';
 import LibraryBookItem from '../libraryBookItem/LibraryBookItem';
+import Preloader from '../preloader/Preloader';
 
 export default class LibraryBooksArea extends Component {
   render () {
     return (
-      <div>
+      <div className="center-align">
         {
           this.props.books.length > 0 ?
-            this.props.books.map(book => <LibraryBookItem book={book} />)
+            <Fragment>
+              {this.props.books.length > 1 ?
+                <h4 className="white-text green darken-2 z-depth-4" style={{padding: "10px", borderRadius: "10px"}}>Top 10 Library Books</h4>
+                :
+                <h4 className="white-text green darken-2 z-depth-4" style={{padding: "10px", borderRadius: "10px"}}>Search Result</h4>
+              }
+              {this.props.books.map(book => <LibraryBookItem book={book} />)}
+            </Fragment>
             :
-          <div>Finding Books.....</div>
+          <div style={{
+            marginTop: "20px"
+          }}>
+            {this.props.loading ?
+              <Preloader />  
+            :
+              <h5 className="white-text">No Search Results found..</h5>
+            }
+          </div>
         }
       </div>
     )

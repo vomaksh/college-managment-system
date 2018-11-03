@@ -7,7 +7,7 @@ export default class LibraryBookItem extends Component{
       <div class="col s12 l6">
         <div class="card horizontal">
           <div class="card-image">
-            <img src={book.bookImg} height="220px" width="150px" />
+            <img src={book.bookImg} height="300px" width="170px" />
           </div>
           <div class="card-stacked white">
           {
@@ -16,7 +16,7 @@ export default class LibraryBookItem extends Component{
               :
               <i class="fas fa-dot-circle green-text right-align" style={{fontSize: "20px", padding: "10px"}}></i>
             }
-          <div class="center-align card-title activator white grey-text text-darken-4">{book.bookName}</div>
+          <h3 class="center-align white grey-text text-darken-4">{book.bookName}</h3>
             <div class="card-content white">
             <table>
               <tbody>

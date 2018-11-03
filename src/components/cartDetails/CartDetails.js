@@ -35,8 +35,10 @@ export default class CartDetails extends Component {
               </tbody>
             </table>
           </div>
-          <div class="modal-footer">
-            <button class="btn modal-close green darken-2" onClick={this.props.buyCartItems}>
+          <div class="modal-footer center-align">
+            <button class="btn modal-close green darken-2" onClick={this.props.buyCartItems} style={{
+              marginRight: "100px"
+            }}>
               <b>Pay</b>
               <i class="fas fa-rupee-sign" style={{
                 fontSize: "18px",

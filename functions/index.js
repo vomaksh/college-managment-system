@@ -3,7 +3,7 @@ const axios = require("axios");
 const express = require('express');
 const cors = require('cors');
 const sendNotificationHandler = require("./sendNotificationHandler");
-
+const fetchResults = require("./fetchResults");
 const app = express();
 
 app.use(cors());
@@ -30,4 +30,6 @@ app.get("/", (req, res) => {
 exports.helloWorld = functions.https.onRequest(app);
 
 exports.sendNotifications = functions.https.onRequest(sendNotificationHandler);
+
+exports.fetchResults = functions.https.onRequest(fetchResults);
 
