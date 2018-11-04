@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SocietyHeader from '../../components/societyHeader/SocietyHeader';
-import SendSocietyAnnouncement from '../../components/sendSocietyAnnouncement/SendSocietyAnnouncement';
 import "./SocietyDashboard.css"
 import SocietyDashboardContentArea from '../../components/societyDashboardContentArea/SocietyDashboardContentArea';
 
@@ -9,6 +8,7 @@ export default class SocietyDashboard extends Component {
     localStorage.removeItem("name");
     localStorage.removeItem("societyId");
     this.props.history.push("/");
+    window.M.toast({html: "You have been successfully logged out"});
   }
   render() {
     return (

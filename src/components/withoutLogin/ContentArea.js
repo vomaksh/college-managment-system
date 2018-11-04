@@ -64,7 +64,7 @@ export default class ContentArea extends Component {
           }
         })
       } else {
-        window.M.toast({html: "Invalid Teacher"})
+        window.M.toast({html: "Invalid Society Admin"})
       }
     })
   }

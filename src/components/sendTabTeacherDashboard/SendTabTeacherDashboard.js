@@ -174,7 +174,7 @@ export default class SendTabTeacherDashboard extends Component {
           marginTop: "0px",
           marginBottom: "10px"
         }}>
-          Generate Notification to all ECE Students
+          Send Announcement
         </button>
         <h2 className="white-text">Add task to Students</h2>
         <div>

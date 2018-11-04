@@ -13,8 +13,7 @@ export default class TheoryAttendance extends Component {
     
     return (
       <div className="container center-align" style={{
-        backgroundColor: "white",
-        minHeight: "100%"
+        backgroundColor: "white"
       }}>
         <h2>Theory Attendance</h2>
         <Line data={{

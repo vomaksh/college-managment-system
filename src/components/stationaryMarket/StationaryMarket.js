@@ -31,6 +31,7 @@ export default class StationaryMarket extends Component {
     });
   }
   componentDidMount = () => {
+    window.M.AutoInit();
     db.collection("stationary")
       .get()
       .then(snapshot => {
@@ -103,7 +104,10 @@ export default class StationaryMarket extends Component {
                 marginRight: "5px"
               }}></i>
             </a>
-            <CartDetails cartDetails={this.state.cartList} totalPrice={this.state.cartValue} buyCartItems={this.buyCartItems} />
+            <CartDetails 
+              cartDetails={this.state.cartList} 
+              totalPrice={this.state.cartValue} 
+              buyCartItems={this.buyCartItems} />
           </div>
           <div className="row" style={{
             marginTop: "10px"

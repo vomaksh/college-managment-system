@@ -50,7 +50,9 @@ export default class Attendance extends Component {
   }
   render() {
     return (
-        <div class="row">
+        <div class="row" style={{
+          minHeight: "650px"
+        }}>
           <div class="blue-grey darken-3 col s12">
             <div className="container">
               <ul class="tabs tabs-transparent">

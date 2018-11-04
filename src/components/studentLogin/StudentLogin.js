@@ -23,7 +23,7 @@ export default class StudentLogin extends Component {
           <div className="col s12 l6 offset-l6">
             <div className="card">
               <div className="card-action black white-text center-align">
-                <h3>Student's Login</h3>
+                <h2>Student's Login</h2>
               </div>
               <div className="card-content">
                 <div className="form-field">

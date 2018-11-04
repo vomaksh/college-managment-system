@@ -34,7 +34,9 @@ export default class Forum extends Component {
   }
   render() {
     return (
-      <div className="row center-align">
+      <div className="row center-align" style={{
+        minHeight: "650px"
+      }}>
         {this.state.loading ?
           <div style={{
             height: "100%",

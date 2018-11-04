@@ -8,6 +8,7 @@ export default class TeacherProfile extends Component {
     localStorage.removeItem("name");
     localStorage.removeItem("teacherId");
     this.props.history.push("/");
+    window.M.toast({html: "You have been successfully logged out"});
   }
   render() {
     return (

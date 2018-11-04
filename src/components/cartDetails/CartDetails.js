@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 export default class CartDetails extends Component {
+  componentDidMount() {
+    window.M.AutoInit();
+  }
   render() {
     const items = Object.keys(this.props.cartDetails);
     let cartArrayDetails = [];
@@ -30,7 +33,7 @@ export default class CartDetails extends Component {
                         <td>{product.quantity}</td>
                       </tr>
                     )) :
-                    <h6>Your Cart is Empty</h6>
+                    <p>Your Cart is Empty</p>
                 }
               </tbody>
             </table>

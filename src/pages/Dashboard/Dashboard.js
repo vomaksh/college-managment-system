@@ -25,6 +25,7 @@ export default class Dashboard extends Component {
     localStorage.removeItem("rollNumber");
     localStorage.removeItem("name");
     this.props.history.push("/");
+    window.M.toast({html: "You have been successfully logged out"});
   }
   render() {
     return (
