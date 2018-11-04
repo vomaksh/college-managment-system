@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import fire from "../../config/fire";
 import StationaryItem from "../stationaryItem/StationaryItem";
 import CartDetails from "../cartDetails/CartDetails";
+import Preloader from "../preloader/Preloader";
 
 const db = fire.firestore();
 db.settings({
@@ -15,7 +16,8 @@ export default class StationaryMarket extends Component {
     this.state = {
       stationaries: [],
       cartValue: 0,
-      cartList: {}
+      cartList: {},
+      loading: true
     }
   }
   addToCart = (price, item) => {
@@ -34,7 +36,8 @@ export default class StationaryMarket extends Component {
       .then(snapshot => {
         snapshot.forEach(doc => {
           this.setState({
-            stationaries: [...this.state.stationaries, doc.data()]
+            stationaries: [...this.state.stationaries, doc.data()],
+            loading: false
           })
         });
       });
@@ -56,48 +59,61 @@ export default class StationaryMarket extends Component {
   render() {
     return (
       <div>
-        <div className="right-align" style={{
-          marginTop: "10px"
-        }}>
-          <button className="left btn-large green darken-2" style={{
-            cursor: "default"
+        {this.state.loading ?
+          <div style={{
+            height: "100%",
+            width: "100%",
+            marginLeft: "45%",
+            marginTop: "20%",
+            marginBottom: "35%"
           }}>
-            <i class="fas fa-shopping-cart" style={{
-              fontSize: "20px",
-              marginRight: "6px"
-            }}></i>
-            <i class="material-icons" style={{
-              fontSize: "20px"
+            <Preloader />
+          </div>
+        :
+        <div>
+          <div className="right-align" style={{
+            marginTop: "10px"
+          }}>
+            <button className="left btn-large green darken-2" style={{
+              cursor: "default"
             }}>
-              arrow_right_alt
-            </i>
-              <i class="fas fa-rupee-sign" style={{
+              <i class="fas fa-shopping-cart" style={{
                 fontSize: "20px",
-                marginLeft: "5px"
+                marginRight: "6px"
               }}></i>
-              <span style={{
-                fontSize: "20px",
-                marginLeft: "5px"
+              <i class="material-icons" style={{
+                fontSize: "20px"
               }}>
-                <b>{this.state.cartValue}</b>
-              </span>
-          </button>
-          <a class="waves-effect waves-light btn-large modal-trigger orange darken-2" href="#cartDetails">
-            <i class="fas fa-shopping-cart" style={{
-              fontSize: "20px",
-              marginRight: "5px"
-            }}></i>
-          </a>
-          <CartDetails cartDetails={this.state.cartList} totalPrice={this.state.cartValue} buyCartItems={this.buyCartItems} />
-        </div>
-        <div className="row" style={{
-          marginTop: "10px"
-        }}>
-        {console.log(this.state.cartList)}
-          {this.state.stationaries.length > 0 ?
-            this.state.stationaries.map(stationary => <StationaryItem link={stationary.link} item={stationary.item} price={stationary.price} addToCart={this.addToCart} />)
-          : null}
-        </div>
+                arrow_right_alt
+              </i>
+                <i class="fas fa-rupee-sign" style={{
+                  fontSize: "20px",
+                  marginLeft: "5px"
+                }}></i>
+                <span style={{
+                  fontSize: "20px",
+                  marginLeft: "5px"
+                }}>
+                  <b>{this.state.cartValue}</b>
+                </span>
+            </button>
+            <a class="waves-effect waves-light btn-large modal-trigger orange darken-2" href="#cartDetails">
+              <i class="fas fa-shopping-cart" style={{
+                fontSize: "20px",
+                marginRight: "5px"
+              }}></i>
+            </a>
+            <CartDetails cartDetails={this.state.cartList} totalPrice={this.state.cartValue} buyCartItems={this.buyCartItems} />
+          </div>
+          <div className="row" style={{
+            marginTop: "10px"
+          }}>
+          {console.log(this.state.cartList)}
+            {this.state.stationaries.length > 0 ?
+              this.state.stationaries.map(stationary => <StationaryItem link={stationary.link} item={stationary.item} price={stationary.price} addToCart={this.addToCart} />)
+            : null}
+          </div>
+          </div>}
       </div>
     );
   }

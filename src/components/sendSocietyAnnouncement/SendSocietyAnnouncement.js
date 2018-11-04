@@ -69,7 +69,8 @@ export default class SendSocietyAnnouncement extends Component {
   render() {
     return (
       <div className="container center-align" style={{
-        marginTop: "20px"
+        marginTop: "20px",
+        height: "600px"
       }}>
         <h2 className="white-text">Post Messages to Students</h2>
         <form class="col s12">

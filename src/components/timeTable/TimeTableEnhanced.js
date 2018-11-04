@@ -39,7 +39,15 @@ export default class TimeTableEnhanced extends Component {
       }}>
         {
           this.state.loading ?
+          <div style={{
+            height: "100%",
+            width: "100%",
+            marginLeft: "0%",
+            marginTop: "10%",
+            marginBottom: "40%"
+          }}>
             <Preloader />
+          </div>
           :
           this.state.timeTable.map((item, index) => {
             if(index === 0){

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fire from '../../config/fire';
 import ForumCard from '../forumCard/ForumCard';
+import Preloader from '../preloader/Preloader';
 
 const db = fire.firestore();
 db.settings({
@@ -11,7 +12,8 @@ export default class Forum extends Component {
   constructor(props){
     super(props);
     this.state = {
-      announcements: []
+      announcements: [],
+      loading: true
     }
   }
   componentDidMount = () => {
@@ -24,7 +26,8 @@ export default class Forum extends Component {
         })
         querySnapshot.forEach(doc => {
             this.setState({
-              announcements: [...this.state.announcements, doc.data()]
+              announcements: [...this.state.announcements, doc.data()],
+              loading: false
             })
         });
       });
@@ -32,7 +35,18 @@ export default class Forum extends Component {
   render() {
     return (
       <div className="row center-align">
-        {this.state.announcements.map(announcement => {
+        {this.state.loading ?
+          <div style={{
+            height: "100%",
+            width: "100%",
+            marginLeft: "0%",
+            marginTop: "10%",
+            marginBottom: "40%"
+          }}>
+            <Preloader />
+          </div>
+        :
+        this.state.announcements.map(announcement => {
           if(localStorage.getItem("teacherId")){
             if(announcement.showToTeachers !== false) {
               return <ForumCard title = {announcement.title} body = {announcement.body} />

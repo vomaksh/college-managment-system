@@ -5,10 +5,15 @@ import "./SocietyDashboard.css"
 import SocietyDashboardContentArea from '../../components/societyDashboardContentArea/SocietyDashboardContentArea';
 
 export default class SocietyDashboard extends Component {
+  logout = () => {
+    localStorage.removeItem("name");
+    localStorage.removeItem("societyId");
+    this.props.history.push("/");
+  }
   render() {
     return (
       <div className="societyDashboard">
-        <SocietyHeader />
+        <SocietyHeader logout={this.logout} />
         <div className="container" style={{
           height: "100%"
         }}>

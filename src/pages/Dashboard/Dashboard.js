@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import "./Dashboard.css"
 import DashboardHeader from '../../components/dashboardHeader/DashboardHeader';
 import DashboardContentArea from '../../components/dashboardContentArea/DashboardContentArea';
-import firebase from '../../config/fire';
 
 export default class Dashboard extends Component {
   componentDidMount() {

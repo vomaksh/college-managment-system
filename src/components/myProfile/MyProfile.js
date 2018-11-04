@@ -83,7 +83,7 @@ export default class MyProfile extends Component {
           <div style={{
             height: "100%",
             width: "100%",
-            marginTop: "50%",
+            marginTop: "20%",
             marginBottom: "50%"
           }}>
             <Preloader />

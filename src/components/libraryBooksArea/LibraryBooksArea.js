@@ -21,7 +21,15 @@ export default class LibraryBooksArea extends Component {
             marginTop: "20px"
           }}>
             {this.props.loading ?
-              <Preloader />  
+              <div style={{
+                height: "100%",
+                width: "100%",
+                marginLeft: "0%",
+                marginTop: "10px",
+                marginBottom: "10%"
+              }}>
+                <Preloader />
+              </div>
             :
               <h5 className="white-text">No Search Results found..</h5>
             }
